@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生列表</title>
+</head>
+<body>
+<a href="../index">回到首页</a>
+<table border="1px" width="100%" style="border-collapse: collapse;">
+    <a href="../add/?table_name={{ table_name }}">添加元素</a>
+    <tr>
+        <th>编号</th>
+        <th>学会名</th>
+        <th>学生数</th>
+    </tr>
+    {% for elems in data %}
+        <tr>
+            <td align="center">{{ forloop.counter }} </td>
+            <td align="center">{{ elems.0 }} </td>
+            <td align="center">{{ elems.1 }} </td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

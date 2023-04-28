@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素编辑</title>
+    <style>
+        form {
+            margin: 20px auto;
+            width: 500px;
+            border: 1px solid #ccc;
+            padding: 20px
+        }
+    </style>
+</head>
+<body>
+<a href="../index">回到首页</a>
+<form method="post" action="../update/">
+    {% csrf_token %}
+{#    <input type="hidden" name="id" value="{{ student.id }}"/>#}
+    <table>
+        <tr>
+            <th>table name</th>
+            <td><input name="table_name" value="{{ table_name }}" readonly></td>
+        </tr>
+        {% for items in data.items %}
+         <tr>
+            <th>{{ items.0 }}</th>
+             {% if items.0 in primary %}
+                    <td><input name="{{ items.0 }}" value="{{ items.1 }}"></td>
+                    <td><input name="{{ items.0 }}_record" hidden value="{{ items.1 }}"></td>
+             {% else %}
+                   <td><input name="{{ items.0 }}" value="{{ items.1 }}"></td>
+            {% endif %}
+         </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="2">
+                <input type="submit"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

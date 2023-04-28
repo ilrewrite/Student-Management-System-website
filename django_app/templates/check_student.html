@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生列表</title>
+</head>
+<body>
+<a href="../index">回到首页</a>
+<table border="1px" width="100%" style="border-collapse: collapse;">
+    <a href="../add/?table_name={{ table_name }}">添加元素</a>
+    <tr>
+        <th>编号</th>
+        {% for col in cols %}
+        <th>{{ col.0 }}</th>
+{#        <th>编号</th>#}
+{#        <th>姓名</th>#}
+{#        <th>学号</th>#}
+{#        <th>操作</th>#}
+        {% endfor %}
+        <th>操作</th>
+    </tr>
+    {% for elems in data %}
+        <tr>
+            <td align="center">{{ forloop.counter }} </td>
+{#            <td align="center">{{ student.student_name }} </td>#}
+{#            <td align="center">{{ student.student_no }} </td>#}
+            {% for elem in elems %}
+            <td align="center">{{ elem }} </td>
+            {% endfor %}
+
+            <td align="center">
+                <a href="../update/?table_name={{ table_name }}&&key={{ elems }}">
+                    编辑
+                </a>
+                <a href="../delete/?table_name={{ table_name }}&&key={{ elems }}">
+                    删除
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

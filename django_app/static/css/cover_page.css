@@ -1,0 +1,48 @@
+body{
+    background-image: url("../img/img2.jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index:-10;
+}
+div{
+    height: 500px;
+    width: 500px;
+    background-color: rgba(255,255,255,0.1);
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+div h1{
+    margin: 0 auto;
+    color: #36beff;
+}
+
+div h2{
+        margin: 0 auto;
+    color: #18f7ff;
+}
+
+div ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex-grow: 1;
+    padding: 0;
+}
+
+div ul li{
+    flex-grow: 1;
+}
+
+div ul a{
+    text-decoration: none;
+    padding: 5px;
+    background-color: #00ffd9;
+    font-size: 30px;
+}
+
+div ul a:hover{
+    background-color: #00a6ff;
+}

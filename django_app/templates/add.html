@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素添加</title>
+    <style>
+        form {
+            margin: 20px auto;
+            width: 500px;
+            border: 1px solid #ccc;
+            padding: 20px
+        }
+    </style>
+</head>
+<body>
+<a href="../index">回到首页</a>
+<form method="post" action="../add/">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th>table name</th>
+            <td><input name="table_name" value="{{ table_name }}" readonly></td>
+        </tr>
+        {% for col in cols %}
+         <tr>
+            <th>{{ col.0 }}</th>
+            <td><input name="{{ col.0 }}"></td>
+         </tr>
+        {% endfor %}
+{#        <tr>#}
+{#            <th>姓名</th>#}
+{#            <td><input name="student_name"></td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <th>学号</th>#}
+{#            <td><input name="student_no"/></td>#}
+{#        </tr>#}
+        <tr>
+            <td colspan="2">
+                <input type="submit"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

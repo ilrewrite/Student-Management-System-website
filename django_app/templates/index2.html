@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>basic page</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/cover_page.css">
+</head>
+<body><div>
+    <h1>学生信息管理系统</h1>
+    <h2>请在下方选择你想要使用的功能</h2>
+    <ul>
+        {% for item in data %}
+            {% if item.0 != 'sp_view' %}
+            <li><a href="../check/?table_name={{ item.0 }}">查看{{ item.0 }}</a></li>
+            {% else %}
+            <li><a href="../view">查看{{ item.0 }}</a></li>
+            {% endif %}
+        {% endfor %}
+{#        <li><a href="../student">查看学生表</a></li>#}
+{#        <li><a href="../class">查看班级表</a></li>#}
+{#        <li><a href="../department">查看系表</a></li>#}
+{#        <li><a href="../institute">查看学会表</a></li>#}
+{#        <li><a href="../myviwe">查看学会视图</a></li>#}
+{#        <li><a href="../func">使用班号修改函数</a></li>#}
+    </ul></div>
+</body>
+</html>
